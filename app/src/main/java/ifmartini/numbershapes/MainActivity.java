@@ -49,17 +49,20 @@ public class MainActivity extends AppCompatActivity {
 
     //  method to test the number when the buttonTest is pressed.
     public void testNumber(View view) {
+
+//        A variable of different messages that will be used.
         String message = " ";
 
-//      getting the user number from UI text field.
+//       getting the user number from UI text field.
         EditText getNumber = (EditText) findViewById(R.id.userNumber);
 
-////      checking at IDE if the user number was got.
-//            Log.i("userNumber", getNumber.getText().toString());
+//        checking at IDE if the user number was got. -- I don't need it anymore
+//        Log.i("userNumber", getNumber.getText().toString());
 
-//      converting the user number to integer
-        int intUserNumber = Integer.parseInt(getNumber.getText().toString());
+//        converting the user number to integer -- I don't need it anymore
+//        int intUserNumber = Integer.parseInt(getNumber.getText().toString());
 
+//        testing if the user input a number. It must require for app does not break down and keep the app safe.
         if (getNumber.getText().toString().isEmpty()) {
 
             message = "Please enter a number";
@@ -70,25 +73,27 @@ public class MainActivity extends AppCompatActivity {
 // attributes and methods of the class here.
             Number myNumber = new Number();
 
-            myNumber.number = intUserNumber;
+//            converting the user number to integer and store into "number" attribute of Number Class.
+            myNumber.number = Integer.parseInt(getNumber.getText().toString());
 
+//            logical test to know if the myNumber (given for user) is a triangular AND square number.
             if (myNumber.isSquare() && myNumber.isTriangular()) {
 
                 message = myNumber.number + " is both triangular and square number";
 
+//            logical test to know if the myNumber (given for user) is only a triangular number
             } else if (myNumber.isTriangular()) {
                 message = myNumber.number + " is only triangular number";
 
+//            logical test to know if the myNumber (given for user) is only a square number
             } else {
                 message = myNumber.number + " is only square number";
-
             }
         }
-
+//        Display the result of logical test and
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
 
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
